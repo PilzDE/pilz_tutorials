@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="sim" default="true" />
+
+  <!-- send urdf to param server -->
+  <param name="robot_description"
+    command="$(find xacro)/xacro --inorder '$(find pilz_tutorial_step_1)/urdf/my_first_application.xacro'"/>
+
+  <include file="$(find prbt_moveit_config)/launch/moveit_planning_execution.launch">
+    <arg name="load_robot_description" value="false"/>
+    <arg name="sim" value="$(arg sim)"/>
+  </include>
+
+</launch>
