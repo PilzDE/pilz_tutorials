@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(pilz_tutorial_step_1)
+project(pilz_tutorial_1)
 
 find_package(catkin REQUIRED COMPONENTS
   # nothing

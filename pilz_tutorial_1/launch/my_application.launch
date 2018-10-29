@@ -5,7 +5,7 @@
 
   <!-- send urdf to param server -->
   <param name="robot_description"
-    command="$(find xacro)/xacro --inorder '$(find pilz_tutorial_step_1)/urdf/my_first_application.xacro'"/>
+    command="$(find xacro)/xacro --inorder '$(find pilz_tutorial_1)/urdf/my_first_application.xacro'"/>
 
   <include file="$(find prbt_moveit_config)/launch/moveit_planning_execution.launch">
     <arg name="load_robot_description" value="false"/>

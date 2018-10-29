@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>pilz_tutorial_step_1</name>
+  <name>pilz_tutorial_1</name>
   <version>0.1.0</version>
   <description>Model your first application including an object from a stl file and a table, 
     on with the PRBT 6 is mounted and move the robot in this virtual enviroment.</description>

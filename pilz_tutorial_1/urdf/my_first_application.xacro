@@ -10,15 +10,22 @@
     <color rgba="1 1 0 1"/>
   </material>
 
+  <!-- coloring from the table -->
+  <material name="grey">
+    <color rgba="0.75 0.75 0.75 1"/>
+  </material>
+
   <!-- instantiate the robot -->
   <xacro:prbt prefix="prbt_"/>
 
   <link name="table">
     <visual>
       <origin rpy="0 0 0" xyz="0 -0.45 -0.03"/>
+      
       <geometry>
         <box size="0.6 1.2 0.05"/>
       </geometry>
+      <material name="grey"/>
     </visual>
   </link>
 
