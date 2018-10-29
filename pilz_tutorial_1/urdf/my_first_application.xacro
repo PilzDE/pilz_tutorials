@@ -33,7 +33,7 @@
     <visual>
       <origin rpy="1.5708 0 0" xyz="0 -0.5 0"/>
       <geometry>
-        <mesh filename="package://pilz_tutorial_step_1/urdf/meshes/PNOZ.stl"
+        <mesh filename="package://pilz_tutorial_1/urdf/meshes/PNOZ.stl"
           scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="yellow"/>
