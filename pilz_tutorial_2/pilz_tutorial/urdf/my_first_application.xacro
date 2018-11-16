@@ -5,6 +5,7 @@
   <!-- macro definition of pilz lwa -->
   <xacro:include filename="$(find prbt_support)/urdf/prbt_macro.xacro" />
 
+
   <!-- coloring from the stl file -->
   <material name="yellow">
     <color rgba="1 1 0 1"/>
@@ -20,9 +21,9 @@
 
   <link name="table">
     <visual>
-      <origin rpy="0 0 0" xyz="0 -0.45 -0.03"/>
+      <origin rpy="0 0 0" xyz="0 0 -0.03"/>
       <geometry>
-        <box size="0.6 1.2 0.05"/>
+      <box size="0.6 1.2 0.05"/>
       </geometry>
       <material name="grey"/>
     </visual>
@@ -39,6 +40,9 @@
     </visual>
   </link>
 
+  <!-- Add the tcp (tutorial 2) -->
+  <link name="prbt_tcp"/>
+      
   <joint name="table_joint" type="fixed">
     <parent link="table"/>
     <child link="prbt_base_link"/>
@@ -47,6 +51,13 @@
   <joint name="pnoz_joint" type="fixed">
     <parent link="table"/>
     <child link="pnoz"/>
+  </joint>
+
+  <!-- connect the added tcp and the flange with a joint (tutorial 2)-->
+  <joint name="prbt_fixed_joint_tcp" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0.05"/>
+    <parent link="prbt_flange"/>
+    <child link="prbt_tcp"/>
   </joint>
   
 </robot>
