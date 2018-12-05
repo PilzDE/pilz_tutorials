@@ -2,13 +2,14 @@
 <package format="2">
   <name>pilz_tutorial</name>
   <version>0.1.0</version>
-  <description>Setup your ROS with the pilz_industrial_motion packages and learn how to plan and move your robot along a path with the Pilz command_planner.</description>
+  <description>Develop a pick and place application and learn how to teach positions. 
+    You create a script which runs with the Python API and use the PTP and LIN commands.</description>
   
   <maintainer email="ros@pilz.de">Pilz GmbH and Co. KG</maintainer>
 
   <license>Apache 2.0</license>
 
-  <url type="website">http://wiki.ros.org/pilz_robots/Tutorials/MoveRobotWithPilzCommand_planner</url> 
+  <url type="website">http://wiki.ros.org/pilz_robots/Tutorials/Move%20your%20robot%20with%20the%20Python%20API</url> 
 
   <buildtool_depend>catkin</buildtool_depend>
   
