@@ -58,7 +58,7 @@ def start_program():
 def pick_and_place():
     """pick and place function"""
 
-    # a static velocity from 0.2 is used
+    # a static velocity of 0.2 is used
     # the position is given relative to the TCP. 
     r.move(Ptp(goal=Pose(position=Point(0, 0, 0.1)), reference_frame="prbt_tcp", vel_scale=0.2))
     rospy.loginfo("Open/Close the gripper") # log
@@ -69,8 +69,8 @@ if __name__ == "__main__":
     # init a rosnode
     rospy.init_node('robot_program_node')
 
-    # initialisation
-    r = Robot(__REQUIRED_API_VERSION__)  # instance of the robot
+    # instance of the robot
+    r = Robot(__REQUIRED_API_VERSION__)
    
     # start the main program
     start_program()
