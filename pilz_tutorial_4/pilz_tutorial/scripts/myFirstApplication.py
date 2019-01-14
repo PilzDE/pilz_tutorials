@@ -14,11 +14,11 @@ def start_program():
 
     # important positions
     start_pos = [1.49, -0.54, 1.09, 0.05, 0.91,-1.67]   # joint values
-    
+
     pos_pick = Point (0, -0.5, 0.25)            # cartesian coordinates
     pos_work_station = Point(-0.5, 0.1, 0.2)    # cartesian coordinates
     pos_place = Point(-0.1,0.4,0.25)            # cartesian coordinates
-    
+
     # spherical coordinates
     orientation_pick = from_euler(0, math.radians(180), math.radians(0))
     orientation_work_station = from_euler(0, math.radians(-135), math.radians(90))
@@ -26,11 +26,11 @@ def start_program():
 
     # move to start point with joint values to avoid random trajectory
     r.move(Ptp(goal=start_pos, vel_scale=__ROBOT_VELOCITY__))
-    
+
     rospy.loginfo("Start loop") # log
     while(True):
-        # do infinite loop  
-        
+        # do infinite loop
+
         # pick the PNOZ
         rospy.loginfo("Move to pick position") # log
         r.move(Ptp(goal=Pose(position=pos_pick, orientation=orientation_pick),
@@ -59,18 +59,19 @@ def pick_and_place():
     """pick and place function"""
 
     # a static velocity of 0.2 is used
-    # the position is given relative to the TCP. 
-    r.move(Ptp(goal=Pose(position=Point(0, 0, 0.1)), reference_frame="prbt_tcp", vel_scale=0.2))
+    # the position is given relative to the TCP.
+    r.move(Lin(goal=Pose(position=Point(0, 0, 0.1)), reference_frame="prbt_tcp", vel_scale=0.2))
     rospy.loginfo("Open/Close the gripper") # log
     rospy.sleep(0.2)    # pick or Place the PNOZ (close or open the gripper)
-    r.move(Ptp(goal=Pose(position=Point(0, 0, -0.1)), reference_frame="prbt_tcp", vel_scale=0.2))
+    r.move(Lin(goal=Pose(position=Point(0, 0, -0.1)), reference_frame="prbt_tcp", vel_scale=0.2))
+
 
 if __name__ == "__main__":
     # init a rosnode
     rospy.init_node('robot_program_node')
 
-    # instance of the robot
-    r = Robot(__REQUIRED_API_VERSION__)
-   
+    # initialisation
+    r = Robot(__REQUIRED_API_VERSION__)  # instance of the robot
+
     # start the main program
     start_program()

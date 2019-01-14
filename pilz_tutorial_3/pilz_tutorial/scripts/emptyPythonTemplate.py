@@ -1,4 +1,4 @@
-#!/usr/bin/env python 
+#!/usr/bin/env python
 from geometry_msgs.msg import Pose, Point
 from pilz_robot_programming import *
 import math
@@ -9,7 +9,7 @@ __ROBOT_VELOCITY__ = 0.5        # velocity of the robot
 
 # main program
 def start_program():
-    pass # do nothing
+    print(r.get_current_pose()) # print the current position of thr robot in the terminal
 
 if __name__ == "__main__":
     # init a rosnode
