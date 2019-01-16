@@ -15,15 +15,11 @@ def start_program():
     # important positions
     start_pos = [1.49, -0.54, 1.09, 0.05, 0.91,-1.67]   # joint values
 
-    pos_pick = Point (0, -0.5, 0.25)            # cartesian coordinates
-    pos_work_station = Point(-0.5, 0.1, 0.2)    # cartesian coordinates
-    pos_place = Point(-0.1,0.4,0.25)            # cartesian coordinates
-
-    # spherical coordinates
-    orientation_pick = from_euler(0, math.radians(180), math.radians(0))
-    orientation_work_station = from_euler(0, math.radians(-135), math.radians(90))
-    orientation_place = from_euler(0, math.radians(180),  math.radians(90))
-
+    pick_pose = Pose(position=Point (0, -0.5, 0.25), orientation=from_euler(0, math.radians(180), math.radians(0))) # cartesian coordinates
+    work_station_pose = Pose(position=Point(-0.5, 0.1, 0.2) , orientation=from_euler(0, math.radians(-135), math.radians(90)))  # cartesian coordinates
+    place_pose = Pose(position=Point(-0.1,0.4,0.25) ,from_euler(0, math.radians(180),  math.radians(90))) # cartesian coordinates
+    
+  
     # move to start point with joint values to avoid random trajectory
     r.move(Ptp(goal=start_pos, vel_scale=__ROBOT_VELOCITY__))
 
@@ -33,15 +29,13 @@ def start_program():
 
         # pick the PNOZ
         rospy.loginfo("Move to pick position") # log
-        r.move(Ptp(goal=Pose(position=pos_pick, orientation=orientation_pick),
-            vel_scale = __ROBOT_VELOCITY__, relative=False))
+        r.move(Ptp(goal=pick_pose, vel_scale = __ROBOT_VELOCITY__, relative=False))
         rospy.loginfo("Pick movement") # log
         pick_and_place()
 
         # put the PNOZ in a "machine"
         rospy.loginfo("Move to virtual machine") # log
-        r.move(Ptp(goal=Pose(position=pos_work_station,
-            orientation=orientation_work_station),vel_scale = __ROBOT_VELOCITY__, relative=False))
+        r.move(Ptp(goal=work_station_pose,vel_scale = __ROBOT_VELOCITY__, relative=False))
         rospy.loginfo("Place PNOZ in machine") # log
         pick_and_place()
         rospy.sleep(1)      # Sleeps for 1 sec (wait until work is finished)
@@ -50,8 +44,7 @@ def start_program():
 
         # place the PNOZ
         rospy.loginfo("Move to place position") # log
-        r.move(Ptp(goal=Pose(position=pos_place, orientation=orientation_place),
-            vel_scale = __ROBOT_VELOCITY__, relative=False))
+        r.move(Ptp(goal=place_pose, vel_scale = __ROBOT_VELOCITY__, relative=False))
         rospy.loginfo("Place movement") # log
         pick_and_place()
 
