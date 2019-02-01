@@ -11,13 +11,13 @@ __ROBOT_VELOCITY__ = 0.5        # velocity of the robot
 def start_program():
 
     # define the positions:
-    joint_goal = [1.49, -0.54, 1.09, 0.05, 0.91,-1.67]  # Use joint values for the first position
-    cartesian_goal=Pose(position=Point(0, 0, 0.1), orientation=from_euler(0, math.radians(180), math.radians(0))) # Use cartesian coordinates for another position
+    joint_goal = [1.49, -0.54, 1.09, 0.05, 0.91, -1.67]  # Use joint values for the first position
+    cartesian_goal=Pose(position=Point(-0.04, -0.53, 0.13), orientation=from_euler(0, math.radians(180), math.radians(0))) # Use cartesian coordinates for another position
     
     # Move to start point with joint values to avoid random trajectory
     r.move(Ptp(goal=joint_goal, vel_scale=__ROBOT_VELOCITY__))
-
-    #Move to the second position
+    
+    # Move to the second position
     r.move(Ptp(goal=cartesian_goal, vel_scale=__ROBOT_VELOCITY__))
     
     

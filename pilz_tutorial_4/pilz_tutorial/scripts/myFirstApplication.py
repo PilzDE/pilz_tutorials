@@ -17,7 +17,7 @@ def start_program():
 
     pick_pose = Pose(position=Point (0, -0.5, 0.25), orientation=from_euler(0, math.radians(180), math.radians(0))) # cartesian coordinates
     work_station_pose = Pose(position=Point(-0.5, 0.1, 0.2) , orientation=from_euler(0, math.radians(-135), math.radians(90)))  # cartesian coordinates
-    place_pose = Pose(position=Point(-0.1,0.4,0.25) ,from_euler(0, math.radians(180),  math.radians(90))) # cartesian coordinates
+    place_pose = Pose(position=Point(-0.1,0.4,0.25) , orientation=from_euler(0, math.radians(180),  math.radians(90))) # cartesian coordinates
     
   
     # move to start point with joint values to avoid random trajectory
