@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<!--
+Copyright © 2018 Pilz GmbH & Co. KG
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<launch>
+
+  <!-- the "sim" argument controls whether we connect to a Simulated or Real robot -->
+  <arg name="sim" default="true" />
+
+  <!-- send urdf to param server -->
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find pilz_tutorial)/urdf/my_first_application.xacro'"/>
+ 
+  <!-- Start RViz with default configuration settings. Set this to false once you have changed the configuration and have saved it as default. -->
+  <arg name="rviz_default" default="true" />
+
+  <!-- The semantic description that corresponds to the URDF -->
+  <param name="robot_description_semantic" command="$(find xacro)/xacro --inorder
+  $(find prbt_moveit_config)/config/prbt.srdf.xacro" />
+  
+  <!-- Load updated joint limits (override information from URDF) -->
+  <group ns="robot_description_planning">
+    <rosparam command="load" file="$(find prbt_moveit_config)/config/joint_limits.yaml"/>
+  </group>
+
+  <!-- Load updated joint limits (override information from URDF) -->
+  <group ns="robot_description_planning">
+    <rosparam command="load" file="$(find prbt_moveit_config)/config/cartesian_limits.yaml"/>
+  </group>
+
+  <!-- Load default settings for kinematics; these settings are overridden by settings in a node's namespace -->
+  <group ns="robot_description_kinematics">
+    <rosparam command="load" file="$(find prbt_moveit_config)/config/kinematics.yaml"/>
+  </group>
+
+  <!-- run the robot simulator and action interface nodes -->
+  <group if="$(arg sim)">
+    <!-- publish the robot state (tf transforms) -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+    <!-- We do not have a robot connected, so publish fake joint states -->
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+      <param name="/use_gui" value="false"/>
+      <rosparam param="/source_list">[/move_group/fake_controller_joint_states]</rosparam>
+    </node>
+  </group>
+
+  <!-- run the "real robot" interface nodes -->
+  <!--   - this includes: robot_state, canopen, and sto nodes -->
+  <group unless="$(arg sim)">
+    <include file="$(find prbt_support)/launch/robot.launch" >
+      <arg name="load_robot_description" value="false" />
+
+      <!-- safe-torque-off-input from the safety controller is read to do a stop1 -->
+      <!-- The signal is read via modbus and you can configure the modbus server ip -->
+      <arg name="sto" value="pnoz" />
+      <!--arg name="sto_modbus_server_ip" value="192.168.0.10" /-->
+
+      <!-- set the name of the config file for canopen_motor_node. If you want to change settings, copy the yaml
+           file into your package and set canopen_config to your new config file path -->
+      <!--arg name="canopen_config" value="$(find pilz_tutorials)/config/manipulator_driver.yaml" /-->
+
+      <!-- if you defined more controllers, add them to this list -->
+      <arg name="spawn_controllers"
+           value="manipulator_joint_trajectory_controller manipulator_joint_state_controller" />
+    </include>
+    <!-- to override a single parameter (e.g. name of can device), or define your own controllers,
+         use rosparam override:-->
+    <!--rosparam param="/prbt/driver/bus/device">can2</rosparam-->
+  </group>
+
+  <include file="$(find prbt_moveit_config)/launch/move_group.launch">
+    <arg name="publish_monitored_planning_scene" value="true" />
+    <arg name="fake_execution" value="$(arg sim)"/>
+    <arg name="pipeline" value="pilz_command_planner" /><!-- Choose planning pipeline -->
+    <arg name="load_robot_description" value="false" />
+    <arg name="capabilities" value="" />
+    <arg name="disable_capabilities" value="" />
+  </include>
+
+  <!-- Start RViz visualization. Remove this on headless hardware, where you just want to run the driver -->
+  <include file="$(find prbt_moveit_config)/launch/moveit_rviz.launch">
+    <arg name="config" value="$(arg rviz_default)"/>
+  </include>
+
+</launch>
+

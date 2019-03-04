@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>pilz_tutorial</name>
+  <version>0.1.0</version>
+  <description>Startup a PRBT manipulator module from ROS and move it.</description>
+  
+  <maintainer email="ros@pilz.de">Pilz GmbH and Co. KG</maintainer>
+
+  <license>Apache 2.0</license>
+
+  <url type="website">https://wiki.ros.org/pilz_robots</url> 
+
+  <buildtool_depend>catkin</buildtool_depend>
+  
+  <exec_depend>prbt_moveit_config</exec_depend>
+
+</package>
