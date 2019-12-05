@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>psen_scan_tutorials</name>
+  <version>1.0.0</version>
+  <description>This package contains all sources for the psen_scan tutorials (http://wiki.ros.org/psen_scan/Tutorials)</description>
+
+  <maintainer email="ros@pilz.de">Pilz GmbH and Co. KG</maintainer>
+
+  <license>LGPLv3</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <exec_depend>psen_scan</exec_depend>
+
+</package>
