@@ -4,7 +4,9 @@
   <version>1.0.0</version>
   <description>This package contains all sources for the psen_scan tutorials (http://wiki.ros.org/psen_scan/Tutorials)</description>
 
-  <maintainer email="ros@pilz.de">Pilz GmbH and Co. KG</maintainer>
+  <maintainer email="c.doehn@pilz.de">Christian Döhn</maintainer>
+  <maintainer email="g.sansone@pilz.de">Giuseppe Sansone</maintainer>
+  <maintainer email="s.heinisch@pilz.de">Sascha Heinisch</maintainer>
 
   <license>LGPLv3</license>
 
