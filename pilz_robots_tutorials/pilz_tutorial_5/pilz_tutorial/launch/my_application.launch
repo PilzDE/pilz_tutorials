@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <!-- Send urdf to parameter server -->
+  <param name="robot_description"
+         command="$(find xacro)/xacro --inorder '$(find prbt_support)/urdf/prbt.xacro'" />
+
+  <!-- Start RViz visualization. Comment this on headless hardware, if you just want to run the driver -->
+  <include file="$(find prbt_moveit_config)/launch/moveit_rviz.launch">
+    <!-- put in your config file, once you saved it inside your package -->
+    <arg name="rviz_config" value="$(find prbt_moveit_config)/launch/moveit.rviz" />
+  </include>
+
+  <!-- Bringup the planner including environment collision checking -->
+  <include file="$(find prbt_moveit_config)/launch/move_group.launch">
+    <arg name="load_robot_description" value="false" />
+  </include>
+
+  <!-- Run the "real robot" interface nodes -->
+  <!--   - this includes: robot_state, canopen, and robot safety nodes -->
+  <include file="$(find prbt_support)/launch/robot.launch">
+    <arg name="load_robot_description" value="false" />
+    <arg name="iso10218_support" value="false" />
+  </include>
+
+</launch>
