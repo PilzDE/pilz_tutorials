@@ -2,7 +2,7 @@
 <package format="2">
   <name>pilz_tutorial</name>
   <version>0.1.0</version>
-  <description>...</description>
+  <description>Learn how to setup the Pilz Manipulator Module PRBT and move the robot for the first time.</description>
 
   <maintainer email="ros@pilz.de">rosuser</maintainer>
 
