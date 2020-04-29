@@ -11,7 +11,8 @@
   <url type="website">http://wiki.ros.org/pilz_robots/Tutorials/HowToSetupTheRobot</url>
 
   <buildtool_depend>catkin</buildtool_depend>
-  
+
   <exec_depend>prbt_moveit_config</exec_depend>
+  <exec_depend>prbt_support</exec_depend>
 
 </package>
