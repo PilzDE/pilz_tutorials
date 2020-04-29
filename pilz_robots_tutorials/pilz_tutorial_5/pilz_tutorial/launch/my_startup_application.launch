@@ -1,5 +1,4 @@
 <?xml version="1.0"?>
-<!-- %Tag(FULLTEXT)% -->
 <launch>
 
   <include file="$(find prbt_support)/launch/robot.launch">
@@ -24,4 +23,3 @@
   </include>
 
 </launch>
-<!-- %EndTag(FULLTEXT)% -->
