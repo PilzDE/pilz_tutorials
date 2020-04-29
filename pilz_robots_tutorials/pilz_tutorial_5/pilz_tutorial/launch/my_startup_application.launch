@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<launch>
+
+  <include file="$(find prbt_support)/launch/robot.launch">
+
+    <!--
+    Only set this value to false if you know exactly what you are doing.
+    Never use this setting in production. Always make sure you apply to
+    your local safety regulations.
+    -->
+    <arg name="iso10218_support" value="false"/>
+
+  </include>
+
+  <include file="$(find prbt_moveit_config)/launch/planning_context.launch"/>
+
+  <!-- Bringup the planner including environment collision checking -->
+  <include file="$(find prbt_moveit_config)/launch/move_group.launch"/>
+
+  <!-- Start RViz visualization. Comment this on headless hardware, if you just want to run the driver -->
+  <include file="$(find prbt_moveit_config)/launch/moveit_rviz.launch">
+     <arg name="rviz_config" value="$(find prbt_moveit_config)/launch/moveit.rviz" />
+  </include>
+
+</launch>
