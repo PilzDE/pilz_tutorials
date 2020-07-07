@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+
+<link name="laserscanner1">
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <box size="0.1 0.1 0.2"/>
+    </geometry>
+    <material name="yellow"/>
+  </visual>
+</link>
+
+<link name="laserscanner2">
+  <visual>
+    <origin rpy="1.5708 0 0" xyz="0.1 0 0"/>
+    <geometry>
+      <box size="0.1 0.1 0.2"/>
+    </geometry>
+    <material name="yellow"/>
+  </visual>
+</link>
