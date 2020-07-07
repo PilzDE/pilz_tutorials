@@ -4,7 +4,7 @@
 <launch>
   <!-- %Tag(PSEN_SCAN_NODE)% -->
   <node name="laser_scanner" type="psen_scan_node" pkg="psen_scan" output="screen" required="true">
-    <rosparam command="load" file="$(find psen_scan_tutorials)/config/config.yaml" />
+    <rosparam command="load" file="$(find psen_scan_tutorials)/config/scanner_config.yaml" />
   </node>
   <!-- %EndTag(PSEN_SCAN_NODE)% -->
   <!-- %Tag(RVIZ)% -->
