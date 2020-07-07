@@ -12,5 +12,6 @@
 
   <buildtool_depend>catkin</buildtool_depend>
   <exec_depend>psen_scan</exec_depend>
+  <exec_depend>tf</exec_depend>
 
 </package>
