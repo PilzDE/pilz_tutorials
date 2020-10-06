@@ -13,10 +13,10 @@
 # limitations under the License.
 
 cmake_minimum_required(VERSION 2.8.3)
-project(psen_scan_tutorials)
+project(psen_scan_v2_tutorials)
 
 find_package(catkin REQUIRED COMPONENTS
-  psen_scan
+  psen_scan_v2
 )
 
 catkin_package(
