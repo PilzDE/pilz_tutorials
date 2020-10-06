@@ -2,6 +2,7 @@
 
  * [pilz_robots](http://wiki.ros.org/pilz_robots/Tutorials/)
  * [psen_scan](http://wiki.ros.org/psen_scan/Tutorials/)
+ * [psen_scan_v2](http://wiki.ros.org/psen_scan_v2/Tutorials/)
 
 Please note: the folder structure on github is not equuivalent with your workspace.
 To use this source files please download or clone this repository and copy only the tutorial you are working on to your workspace "catkin_ws/src".
