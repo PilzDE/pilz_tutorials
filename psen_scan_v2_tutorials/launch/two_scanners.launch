@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<!-- %Tag(FULLTEXT)% -->
+<launch>
+  <node pkg="tf" type="static_transform_publisher" name="scanner_1_bc" args="0 0.15 0 0 0 0 map scanner 100" />
+  <node pkg="tf" type="static_transform_publisher" name="scanner_2_bc" args="0 -0.15 0 0 0 0 map scanner2 100" />
+
+  <node name="laser_scanner" type="psen_scan_node" pkg="psen_scan" output="screen" required="true">
+    <rosparam command="load" file="$(find psen_scan_tutorials)/config/scanner_config.yaml" />
+  </node>
+  <node name="laser_scanner2" type="psen_scan_node" pkg="psen_scan" output="screen" required="true">
+    <rosparam command="load" file="$(find psen_scan_tutorials)/config/scanner2_config.yaml" />
+  </node>
+  <node name="$(anon rviz)" type="rviz" pkg="rviz" args="-d $(find psen_scan)/config/config.rviz" />
+</launch>
+<!-- %EndTag(FULLTEXT)% -->
