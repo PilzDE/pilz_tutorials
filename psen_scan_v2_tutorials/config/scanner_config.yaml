@@ -1,0 +1,5 @@
+# %Tag(FULLTEXT)%
+sensor_ip: "192.168.0.10" # Insert the IP of the laser scanner here.
+host_ip: "192.168.0.25" # Change the IP to the IP of your PC.
+host_udp_port: 55000
+# %EndTag(FULLTEXT)%

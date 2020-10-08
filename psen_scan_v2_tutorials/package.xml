@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>psen_scan_v2_tutorials</name>
+  <version>1.0.0</version>
+  <description>This package contains all sources for the psen_scan_v2 tutorials (http://wiki.ros.org/psen_scan_v2/Tutorials)</description>
+
+  <maintainer email="a.gutenkunst@pilz.de">Alexander Gutenkunst</maintainer>
+  <maintainer email="c.doehn@pilz.de">Christian Döhn</maintainer>
+  <maintainer email="c.henkel@pilz.de">Christian Henkel</maintainer>
+  <maintainer email="i.martini@pilz.de">Immanuel Martini</maintainer>
+  <maintainer email="r.feistenauer@pilz.de">Richard Feistenauer</maintainer>
+
+  <license>Apache 2.0</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <exec_depend>psen_scan_v2</exec_depend>
+  <exec_depend>tf</exec_depend>
+
+</package>
