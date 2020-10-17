@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="psen_scan">
+  <!-- Example on how to use the psen_scan scanner within your robots urdf -->
+
+  <xacro:include filename="$(find psen_scan_v2)/urdf/psen_scan.urdf.xacro" />
+
+  <link name="fixed"/>
+
+  <joint name="scanner_1_mount_joint" type="fixed">
+    <parent link="fixed" />
+    <child link="laser_1_mount_link" />
+    <origin rpy="0 0 0" xyz="-1 0 0"/>
+  </joint>
+
+  <joint name="scanner_2_mount_joint" type="fixed">
+    <parent link="fixed" />
+    <child link="laser_2_mount_link" />
+    <origin rpy="0 0 0" xyz="1 0 0"/>
+  </joint>
+
+  <xacro:psen_scan prefix="laser_1" ros_topic="scan" />
+  <xacro:psen_scan prefix="laser_2" ros_topic="scan2" />
+</robot>
