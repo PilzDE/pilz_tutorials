@@ -7,6 +7,12 @@
     <rosparam command="load" file="$(find psen_scan_v2_tutorials)/config/scanner_config.yaml" />
   </node>
   <!-- %EndTag(PSEN_SCAN_NODE)% -->
+
+  <!-- %Tag(STATE_PUBLISHER)% -->
+  <param name="robot_description" command="$(find xacro)/xacro '$(find psen_scan_v2_tutorials)/urdf/example.urdf.xacro'" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+  <!-- %EndTag(PSEN_SCAN_NODE)% -->
+
   <!-- %Tag(RVIZ)% -->
   <node name="$(anon rviz)" type="rviz" pkg="rviz" args="-d $(find psen_scan_v2)/config/config.rviz" />
   <!-- %EndTag(RVIZ)% -->

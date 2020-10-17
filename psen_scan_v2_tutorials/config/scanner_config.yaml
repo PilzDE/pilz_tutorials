@@ -1,5 +1,9 @@
 # %Tag(FULLTEXT)%
 sensor_ip: "192.168.0.10" # Insert the IP of the laser scanner here.
 host_ip: "192.168.0.25" # Change the IP to the IP of your PC.
-host_udp_port: 55000
+host_udp_port_control: 55115 # The port on your pc used to start/stop the scanner
+host_udp_port_data: 55116 # The port on your pc where the data is received
+angle_start: -2.399 # The angle of the first measurement (-2.399 rad ~= -137.5 deg)
+angle_end: 2.399 # The angle of the last measurement (2.399 rad ~= 137.5 deg)
+frame_id: laser_1_scan # Frame on which the scans are published
 # %EndTag(FULLTEXT)%
