@@ -1,23 +1,27 @@
 <?xml version="1.0"?>
+<!-- %Tag(FULLTEXT)% -->
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="psen_scan">
-  <!-- Example on how to use the psen_scan scanner within your robots urdf -->
-
+  <!-- %Tag(IMPORT_WORLD)% -->
   <xacro:include filename="$(find psen_scan_v2)/urdf/psen_scan.urdf.xacro" />
+  <link name="world"/>
+  <!-- %EndTag(IMPORT_WORLD)% -->
 
-  <link name="fixed"/>
-
-  <joint name="scanner_1_mount_joint" type="fixed">
-    <parent link="fixed" />
+  <!-- %Tag(FIRST_SCANNER)% -->
+  <joint name="laser_1_world_joint" type="fixed">
+    <parent link="world" />
     <child link="laser_1_mount_link" />
-    <origin rpy="0 0 0" xyz="-1 0 0"/>
+    <origin rpy="0 0 ${-pi/2}" xyz="0 -1 0"/>
   </joint>
+  <xacro:psen_scan prefix="laser_1" />
+  <!-- %EndTag(FIRST_SCANNER)% -->
 
-  <joint name="scanner_2_mount_joint" type="fixed">
-    <parent link="fixed" />
+  <!-- %Tag(SECOND_SCANNER)% -->
+  <joint name="laser_2_world_joint" type="fixed">
+    <parent link="world" />
     <child link="laser_2_mount_link" />
-    <origin rpy="0 0 0" xyz="1 0 0"/>
+    <origin rpy="0 0 ${pi/2}" xyz="0 1 0"/>
   </joint>
-
-  <xacro:psen_scan prefix="laser_1" ros_topic="scan" />
-  <xacro:psen_scan prefix="laser_2" ros_topic="scan2" />
+  <xacro:psen_scan prefix="laser_2" />
+  <!-- %EndTag(SECOND_SCANNER)% -->
 </robot>
+<!-- %EndTag(FULLTEXT)% -->
