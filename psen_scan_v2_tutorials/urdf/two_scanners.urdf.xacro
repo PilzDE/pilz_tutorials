@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!-- %Tag(FULLTEXT)% -->
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="psen_scan">
+  <!-- %Tag(IMPORT_MAP)% -->
+  <xacro:include filename="$(find psen_scan_v2)/urdf/psen_scan.urdf.xacro" />
+  <link name="map"/>
+  <!-- %EndTag(IMPORT_MAP)% -->
+
+  <!-- %Tag(FIRST_SCANNER)% -->
+  <joint name="laser_1_map_joint" type="fixed">
+    <parent link="map" />
+    <child link="laser_1_mount_link" />
+    <origin rpy="0 0 ${-pi/2}" xyz="0 -1 0"/>
+  </joint>
+  <xacro:psen_scan prefix="laser_1" />
+  <!-- %EndTag(FIRST_SCANNER)% -->
+
+  <!-- %Tag(SECOND_SCANNER)% -->
+  <joint name="laser_2_map_joint" type="fixed">
+    <parent link="map" />
+    <child link="laser_2_mount_link" />
+    <origin rpy="0 0 ${pi/2}" xyz="0 1 0"/>
+  </joint>
+  <xacro:psen_scan prefix="laser_2" />
+  <!-- %EndTag(SECOND_SCANNER)% -->
+</robot>
+<!-- %EndTag(FULLTEXT)% -->

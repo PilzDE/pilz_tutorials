@@ -1,5 +1,4 @@
 <?xml version="1.0"?>
-
 <!-- %Tag(FULLTEXT)% -->
 <launch>
   <!-- %Tag(PSEN_SCAN_NODE)% -->
@@ -9,7 +8,7 @@
   <!-- %EndTag(PSEN_SCAN_NODE)% -->
 
   <!-- %Tag(STATE_PUBLISHER)% -->
-  <param name="robot_description" command="$(find xacro)/xacro '$(find psen_scan_v2_tutorials)/urdf/example.urdf.xacro'"/>
+  <param name="robot_description" command="$(find xacro)/xacro '$(find psen_scan_v2_tutorials)/urdf/example.urdf.xacro'" />
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
   <!-- %EndTag(PSEN_SCAN_NODE)% -->
 

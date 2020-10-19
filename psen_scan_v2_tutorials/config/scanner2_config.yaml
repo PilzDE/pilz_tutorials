@@ -1,6 +1,7 @@
 # %Tag(FULLTEXT)%
 sensor_ip: "192.168.0.20"
-host_ip: "192.168.0.25"
-host_udp_port: 50505
-frame_id: "scanner2"
+host_ip: "192.168.0.50"
+host_udp_port_control: 50505 
+host_udp_port_data: 50506 
+prefix: laser_2
 # %EndTag(FULLTEXT)%
