@@ -2,16 +2,23 @@
 
 <!-- %Tag(FULLTEXT)% -->
 <launch>
-  <node name="laser_scanner" type="psen_scan_v2_node" pkg="psen_scan_v2" output="screen" required="true">
-    <rosparam command="load" file="$(find psen_scan_v2_tutorials)/config/scanner_config.yaml" />
+  <node name="laser_scanner" type="psen_scan_v2_node" pkg="psen_scan_v2" output="screen" 
+        required="true">
+    <rosparam command="load" 
+              file="$(find psen_scan_v2_tutorials)/config/scanner_config.yaml" />
   </node>
-  <node name="laser_scanner2" type="psen_scan_v2_node" pkg="psen_scan_v2" output="screen" required="true">
-    <rosparam command="load" file="$(find psen_scan_v2_tutorials)/config/scanner2_config.yaml" />
+  <node name="laser_scanner2" type="psen_scan_v2_node" pkg="psen_scan_v2" output="screen" 
+        required="true">
+    <rosparam command="load" 
+              file="$(find psen_scan_v2_tutorials)/config/scanner2_config.yaml" />
   </node>
 
-  <param name="robot_description" command="$(find xacro)/xacro '$(find psen_scan_v2_tutorials)/urdf/two_scanners.urdf.xacro'" />
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+  <param name="robot_description" 
+         command="$(find xacro)/xacro '$(find psen_scan_v2_tutorials)/urdf/two_scanners.urdf.xacro'" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" 
+        type="robot_state_publisher" />
 
-  <node name="$(anon rviz)" type="rviz" pkg="rviz" args="-d $(find psen_scan_v2)/config/config.rviz" />
+  <node name="$(anon rviz)" type="rviz" pkg="rviz" 
+        args="-d $(find psen_scan_v2)/config/config.rviz" />
 </launch>
 <!-- %EndTag(FULLTEXT)% -->
