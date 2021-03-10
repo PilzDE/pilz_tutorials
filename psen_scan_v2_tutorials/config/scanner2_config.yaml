@@ -1,7 +1,10 @@
 # %Tag(FULLTEXT)%
-sensor_ip: "192.168.0.20"
+sensor_ip: "192.168.0.20"    # IP address of the laser scanner
+## The following paramters are optional
+prefix: laser_2              # this name is prefixed to the TF, where the scanner is mounted
+angle_start: -2.399          # The angle of the first measurement (-2.399 rad ~= -137.5 deg)
+angle_end: 2.399             # The angle of the last measurement (2.399 rad ~= 137.5 deg)
 host_ip: "192.168.0.50"
 host_udp_port_control: 50505 
 host_udp_port_data: 50506 
-prefix: laser_2
 # %EndTag(FULLTEXT)%
