@@ -2,10 +2,10 @@
 sensor_ip: "192.168.0.10"    # Insert the IP of the laser scanner here.
 ## The following parameters are optional:
 prefix: laser_1              # This name is prefixed to the TF, where the scanner is mounted
-angle_start: -2.399          # The angle of the first measurement (-2.399 rad ~= -137.5 deg)
-angle_end: 2.399             # The angle of the last measurement (2.399 rad ~= 137.5 deg)
+angle_start: deg(-137.5)     # The angle of the first measurement
+angle_end: deg(137.5)        # The angle of the last measurement
 intensities: false           # Receive intensity values
-resolution: 0.0017           # Scan resolution (0.0017 rad ~= 0.1 deg)
+resolution: deg(0.1)         # Scan resolution
 host_ip: "192.168.0.50"      # Change the IP to the IP of your PC.
 host_udp_port_control: 55115 # The port on your pc used to start/stop the scanner
 host_udp_port_data: 55116    # The port on your pc where the data is received
