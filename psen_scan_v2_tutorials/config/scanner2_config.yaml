@@ -1,7 +1,13 @@
 # %Tag(FULLTEXT)%
-sensor_ip: "192.168.0.20"
-host_ip: "192.168.0.50"
-host_udp_port_control: 50505 
-host_udp_port_data: 50506 
-prefix: laser_2
+sensor_ip: "192.168.0.20"    # IP address of the laser scanner
+prefix: laser_2              # This name is prefixed to the TF, where the scanner is mounted
+host_udp_port_control: 50505 # Make sure to use different ports than in the first scanner config.
+host_udp_port_data: 50506
+## The following parameters are optional
+angle_start: deg(-137.5)     # The angle of the first measurement
+angle_end: deg(137.5)        # The angle of the last measurement
+intensities: false           # Receive intensity values
+resolution: deg(0.1)         # Scan resolution
+host_ip: "192.168.0.50"      # Change the IP to the IP of your PC.
+fragmented_scans: false      # Receive fragmented scans a.s.a.p. instead of full scan
 # %EndTag(FULLTEXT)%
