@@ -8,6 +8,6 @@ angle_start: -2.399          # The angle of the first measurement (-2.399 rad ~=
 angle_end: 2.399             # The angle of the last measurement (2.399 rad ~= 137.5 deg)
 intensities: false           # Receive intensity values
 resolution: 0.0017           # Scan resolution (0.0017 rad ~= 0.1 deg)
-host_ip: "192.168.0.50"      # Change the IP to the IP of your PC.
+host_ip: "192.168.0.50"      # IP of your PC, if auto-detection doesn't work for you.
 fragmented_scans: false      # Receive fragmented scans a.s.a.p. instead of full scan
 # %EndTag(FULLTEXT)%
