@@ -12,12 +12,12 @@
   </include>
   <rosparam ns="laser_2_node" command="load" file="$(find psen_scan_v2_tutorials)/config/scanner_config.yaml" />
 
-  <param name="robot_description" 
+  <param name="robot_description"
          command="$(find xacro)/xacro '$(find psen_scan_v2_tutorials)/urdf/two_scanners.urdf.xacro'" />
-  <node name="robot_state_publisher" pkg="robot_state_publisher" 
+  <node name="robot_state_publisher" pkg="robot_state_publisher"
         type="robot_state_publisher" />
 
-  <node name="$(anon rviz)" type="rviz" pkg="rviz" 
+  <node name="$(anon rviz)" type="rviz" pkg="rviz"
         args="-d $(find psen_scan_v2)/config/config.rviz" />
 </launch>
 <!-- %EndTag(FULLTEXT)% -->
