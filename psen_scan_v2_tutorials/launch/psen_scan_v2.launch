@@ -2,10 +2,8 @@
 <!-- %Tag(FULLTEXT)% -->
 <launch>
   <!-- %Tag(PSEN_SCAN_NODE)% -->
-  <node name="laser_scanner" type="psen_scan_v2_node" pkg="psen_scan_v2" output="screen" 
-        required="true">
-    <rosparam command="load" file="$(find psen_scan_v2_tutorials)/config/scanner_config.yaml" />
-  </node>
+  <include file="$(find psen_scan_v2)/launch/bringup.launch" />
+  <rosparam ns="laser_1_node" command="load" file="$(find psen_scan_v2_tutorials)/config/scanner_config.yaml" />
   <!-- %EndTag(PSEN_SCAN_NODE)% -->
 
   <!-- %Tag(STATE_PUBLISHER)% -->

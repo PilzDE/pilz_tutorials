@@ -2,16 +2,15 @@
 
 <!-- %Tag(FULLTEXT)% -->
 <launch>
-  <node name="laser_scanner" type="psen_scan_v2_node" pkg="psen_scan_v2" output="screen" 
-        required="true">
-    <rosparam command="load" 
-              file="$(find psen_scan_v2_tutorials)/config/scanner_config.yaml" />
-  </node>
-  <node name="laser_scanner2" type="psen_scan_v2_node" pkg="psen_scan_v2" output="screen" 
-        required="true">
-    <rosparam command="load" 
-              file="$(find psen_scan_v2_tutorials)/config/scanner2_config.yaml" />
-  </node>
+  <include file="$(find psen_scan_v2)/launch/bringup.launch">
+    <arg name="prefix" value="laser_1" />
+  </include>
+  <rosparam ns="laser_1_node" command="load" file="$(find psen_scan_v2_tutorials)/config/scanner_config.yaml" />
+
+  <include file="$(find psen_scan_v2)/launch/bringup.launch">
+    <arg name="prefix" value="laser_2" />
+  </include>
+  <rosparam ns="laser_2_node" command="load" file="$(find psen_scan_v2_tutorials)/config/scanner_config.yaml" />
 
   <param name="robot_description" 
          command="$(find xacro)/xacro '$(find psen_scan_v2_tutorials)/urdf/two_scanners.urdf.xacro'" />
