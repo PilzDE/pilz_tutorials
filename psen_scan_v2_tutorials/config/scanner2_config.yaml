@@ -4,8 +4,8 @@ prefix: laser_2              # This name is prefixed to the TF, where the scanne
 host_udp_port_control: 50505 # Make sure to use different ports than in the first scanner config.
 host_udp_port_data: 50506
 ## The following parameters are optional
-angle_start: deg(-137.5)     # The angle of the first measurement
-angle_end: deg(137.5)        # The angle of the last measurement
+angle_start: deg(-137.4)     # The angle of the first measurement
+angle_end: deg(137.4)        # The angle of the last measurement
 intensities: false           # Receive intensity values
 resolution: deg(0.1)         # Scan resolution
 host_ip: "192.168.0.50"      # Change the IP to the IP of your PC.

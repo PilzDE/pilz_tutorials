@@ -2,20 +2,18 @@
 <!-- %Tag(FULLTEXT)% -->
 <launch>
   <!-- %Tag(PSEN_SCAN_NODE)% -->
-  <node name="laser_scanner" type="psen_scan_v2_node" pkg="psen_scan_v2" output="screen" 
-        required="true">
-    <rosparam command="load" file="$(find psen_scan_v2_tutorials)/config/scanner_config.yaml" />
-  </node>
+  <include file="$(find psen_scan_v2)/launch/bringup.launch" />
+  <rosparam ns="laser_1_node" command="load" file="$(find psen_scan_v2_tutorials)/config/scanner_config.yaml" />
   <!-- %EndTag(PSEN_SCAN_NODE)% -->
 
   <!-- %Tag(STATE_PUBLISHER)% -->
-  <param name="robot_description" 
+  <param name="robot_description"
          command="$(find xacro)/xacro '$(find psen_scan_v2_tutorials)/urdf/example.urdf.xacro'" />
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
   <!-- %EndTag(PSEN_SCAN_NODE)% -->
 
   <!-- %Tag(RVIZ)% -->
-  <node name="$(anon rviz)" type="rviz" pkg="rviz" 
+  <node name="$(anon rviz)" type="rviz" pkg="rviz"
         args="-d $(find psen_scan_v2)/config/config.rviz" />
   <!-- %EndTag(RVIZ)% -->
 </launch>
