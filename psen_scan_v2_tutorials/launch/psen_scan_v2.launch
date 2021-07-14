@@ -3,7 +3,7 @@
 <launch>
   <!-- %Tag(PSEN_SCAN_NODE)% -->
   <include file="$(find psen_scan_v2)/launch/bringup.launch" />
-  <rosparam ns="laser_1_node" command="load" file="$(find psen_scan_v2_tutorials)/config/scanner_config.yaml" />
+  <rosparam ns="laser_1" command="load" file="$(find psen_scan_v2_tutorials)/config/scanner_config.yaml" />
   <!-- %EndTag(PSEN_SCAN_NODE)% -->
 
   <!-- %Tag(STATE_PUBLISHER)% -->
