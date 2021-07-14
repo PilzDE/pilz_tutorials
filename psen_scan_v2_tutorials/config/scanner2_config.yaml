@@ -1,6 +1,6 @@
 # %Tag(FULLTEXT)%
 sensor_ip: "192.168.0.20"    # IP address of the laser scanner
-prefix: laser_2              # This name is prefixed to the TF, where the scanner is mounted
+name: laser_2                # This name is prefixed to the TF, where the scanner is mounted
 host_udp_port_control: 50505 # Make sure to use different ports than in the first scanner config.
 host_udp_port_data: 50506
 ## The following parameters are optional
