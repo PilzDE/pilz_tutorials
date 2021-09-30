@@ -1,7 +1,7 @@
 # %Tag(FULLTEXT)%
 sensor_ip: "192.168.0.10"    # Insert the IP of the laser scanner here.
 ## The following parameters are optional:
-name: laser_1                # This name is prefixed to the TF, where the scanner is mounted
+tf_prefix: laser_1                # This name is prefixed to the TF, where the scanner is mounted
 angle_start: deg(-137.4)     # The angle of the first measurement
 angle_end: deg(137.4)        # The angle of the last measurement
 intensities: false           # Receive intensity values
