@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 from geometry_msgs.msg import Pose, Point
 from pilz_robot_programming import *
 import math
