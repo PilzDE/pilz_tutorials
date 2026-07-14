@@ -1,3 +1,13 @@
+# ⚠️ End of Life (EOL) Notice
+
+> **ROS 1 has reached End of Life (EOL). This repository is no longer maintained.**
+
+### What this means
+- ❌ No new features will be developed.
+- ❌ No bug fixes will be provided.
+- ❌ No security updates will be released.
+- ⚠️ Use at your own risk.
+
 ## Files for all PILZ tutorials
 
  * [pilz_robots](http://wiki.ros.org/pilz_robots/Tutorials/)
